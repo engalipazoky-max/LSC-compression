@@ -20,6 +20,7 @@ LSC maps nonlinear attention patterns to linear spectral spaces via Fourier anal
 
 
 lsc_v42_pipeline.py   
+
 ├── Compression Engine (FFT + Chebyshev + Hybrid)
 
 ├── 8 Core Analyses  
