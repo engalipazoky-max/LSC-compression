@@ -1,0 +1,6 @@
+@dataset{{pazoky2024lscdemo,
+  title = {{LSC v4.2 Demo Dataset}},
+  author = {{Pazoky, Ali}},
+  year = {2024},
+  doi = {{10.5281/zenodo.17790989}}
+}}

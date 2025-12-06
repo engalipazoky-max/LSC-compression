@@ -1,0 +1,4 @@
+with open("test_reproduction.py", "w") as f:
+    f.write(test_code)
+
+print("✅ Created reproduction test: test_reproduction.py")

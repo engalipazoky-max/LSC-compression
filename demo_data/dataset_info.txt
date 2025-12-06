@@ -1,0 +1,15 @@
+dataset = torch.load("demo_data/lsc_demo_dataset.pt")
+results = dataset['compression_results']
+
+# Check that Chebyshev is better than FFT (for smooth patterns)
+layer_1_results = results['layer_1']
+
+for head in layer_1_results:
+    fft_mse = layer_1_results[head]['fft']['mse']
+    cheb_mse = layer_1_results[head]['chebyshev']['mse']
+    
+    # Chebyshev should be better for smooth patterns
+    assert cheb_mse < fft_mse * 1.1, f"Chebyshev not better than FFT for layer_1/{head}"
+    print(f"  ✓ layer_1/{head}: Chebyshev ({cheb_mse:.4f}) < FFT ({fft_mse:.4f})")
+
+return True

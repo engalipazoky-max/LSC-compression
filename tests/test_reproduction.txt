@@ -1,0 +1,25 @@
+tests = [
+    ("Attention Statistics", test_attention_statistics),
+    ("Compression Results", test_compression_results),
+    ("Benchmark Trends", test_benchmark_trends)
+]
+
+all_passed = True
+for test_name, test_func in tests:
+    try:
+        if test_func():
+            print(f"✅ {test_name}: PASS")
+        else:
+            print(f"❌ {test_name}: FAIL")
+            all_passed = False
+    except Exception as e:
+        print(f"❌ {test_name}: ERROR - {e}")
+        all_passed = False
+
+print("=" * 60)
+if all_passed:
+    print("✅ ALL TESTS PASSED - Reproduction successful!")
+else:
+    print("❌ SOME TESTS FAILED")
+
+return all_passed

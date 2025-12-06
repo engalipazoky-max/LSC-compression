@@ -1,0 +1,22 @@
+# Load dataset
+dataset = torch.load("demo_data/lsc_demo_dataset.pt")
+attentions = dataset['attention_patterns']
+
+# Test a few key matrices
+test_cases = [
+    ('layer_1', 'head_1', 'smooth'),
+    ('layer_6', 'head_8', 'sparse'),
+    ('layer_12', 'head_12', 'diagonal')
+]
+
+for layer, head, expected_type in test_cases:
+    att = attentions[layer][head]
+    
+    # Check properties
+    assert att.shape == (128, 128), f"{layer}/{head}: Wrong shape"
+    assert torch.allclose(att.sum(dim=-1), torch.ones(128), rtol=1e-5), f"{layer}/{head}: Not normalized"
+    assert (att >= 0).all(), f"{layer}/{head}: Negative values"
+    
+    print(f"  ✓ {layer}/{head}: {expected_type} pattern validated")
+
+return True

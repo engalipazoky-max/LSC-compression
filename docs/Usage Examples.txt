@@ -1,0 +1,9 @@
+
+## Usage Examples
+
+### 1. Load Full Dataset
+```python
+import torch
+dataset = torch.load("demo_data/lsc_demo_dataset.pt")
+attention_patterns = dataset['attention_patterns']
+compression_results = dataset['compression_results']

@@ -1,0 +1,16 @@
+dataset = torch.load("demo_data/lsc_demo_dataset.pt")
+benchmarks = dataset['benchmark_data']
+
+# Time should increase with sequence length
+prev_time = 0
+for seq_len in [64, 128, 256, 512, 1024]:
+    key = f"seq_{seq_len}"
+    lsc_time = benchmarks[key]['lsc_hybrid']['time_ms']
+    
+    if prev_time > 0:
+        assert lsc_time > prev_time, f"Time doesn't increase with seq_len {seq_len}"
+    
+    prev_time = lsc_time
+    print(f"  ✓ seq_{seq_len}: {lsc_time:.1f} ms")
+
+return True
