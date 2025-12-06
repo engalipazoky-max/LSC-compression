@@ -78,7 +78,14 @@ Support more architectures (T5, GPT-J, LLaMA)
 eng.ali.pazoky@gmail.com
 Issues → Discussions → PRs
 
+## 💼 Commercial Use
 
+For **commercial applications** (SaaS, proprietary products, closed-source deployments), please contact:
+
+📧 **eng.ali.pazoky@gmail.com**  
+📄 **Subject: "LSC Commercial License"**
+
+I offer **flexible licensing** (perpetual, royalty, white-label) for startups and enterprises.
 
 
 
